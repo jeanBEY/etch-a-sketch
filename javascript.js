@@ -3,10 +3,12 @@
 //console.log(newDiv);
 //document.getElementById("flex-container").appendChild(newDiv);
 
+//RESOURCE:  https://www.reddit.com/r/learnjavascript/comments/jf19y6/creating_a_grid_using_divs/
 function createRowDiv(x, y){
     for(let i = 0; i < x; i++){
         let rowDiv = document.createElement("div");
         rowDiv.classList.add("rowDiv");
+        rowDiv.style.width = 600 / x + "px";
         document.getElementById("grid-container").appendChild(rowDiv);
         createRow(i, y, rowDiv);
     }
@@ -15,9 +17,21 @@ function createRowDiv(x, y){
 function createRow(i, y, rowDiv){
     for(let j = 0; j < y; j++){
         let cellDiv = document.createElement("div");
+        cellDiv.style.height = 600 / y + "px";        
         cellDiv.classList.add("cell");
         rowDiv.appendChild(cellDiv);
     }
 }
 
-createRowDiv(3,2);
+createRowDiv(4,4);
+
+//RESOURCE: https://css-tricks.com/dont-overthink-flexbox-grids/
+const rowList = document.querySelectorAll(".rowDiv");
+for(let i = 0; i < rowList.length; i++){
+    rowList[i].style.display = "flex";
+}
+
+const cellList = document.querySelectorAll(".cell");
+for(let i = 0; i < cellList.length; i++){
+    cellList[i].style.flex = 1;
+}
