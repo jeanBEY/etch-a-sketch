@@ -8,7 +8,7 @@ function createRowDiv(x, y){
     for(let i = 0; i < x; i++){
         let rowDiv = document.createElement("div");
         rowDiv.classList.add("rowDiv");
-        rowDiv.style.width = 600 / x + "px";
+        //rowDiv.style.width = 600 / x + "px";
         document.getElementById("grid-container").appendChild(rowDiv);
         createRow(i, y, rowDiv);
     }
@@ -17,7 +17,7 @@ function createRowDiv(x, y){
 function createRow(i, y, rowDiv){
     for(let j = 0; j < y; j++){
         let cellDiv = document.createElement("div");
-        cellDiv.style.height = 600 / y + "px";        
+        //cellDiv.style.height = 600 / y + "px";        
         cellDiv.classList.add("cell");
         rowDiv.appendChild(cellDiv);
     }
@@ -31,7 +31,12 @@ for(let i = 0; i < rowList.length; i++){
     rowList[i].style.display = "flex";
 }
 
+//RESOURCE: https://stackoverflow.com/questions/29307971/css-grid-of-squares-with-flexbox
 const cellList = document.querySelectorAll(".cell");
 for(let i = 0; i < cellList.length; i++){
-    cellList[i].style.flex = 1;
+    cellList[i].style.flexGrow = 1;
+    cellList[i].style.flexShrink = 0;
+    cellList[i].style.flexBasis = 0;
+    cellList[i].style.aspectRatio = 1/1;
+    //cellList[i].style.height = auto;
 }
