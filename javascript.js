@@ -48,9 +48,9 @@ for(let i = 0; i < boxes.length; i++){
 }
 
 function colorenter(e){
-    e.target.style.backgroundColor = "blue";
+    e.target.style.backgroundColor = "white";
 }
 
 function colorleave(e){
-    e.target.style.backgroundColor = "white";
+    e.target.style.backgroundColor = "lightsteelblue";
 }
