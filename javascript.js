@@ -40,3 +40,17 @@ for(let i = 0; i < cellList.length; i++){
     cellList[i].style.aspectRatio = 1/1;
     //cellList[i].style.height = auto;
 }
+
+const boxes = document.querySelectorAll(".cell");
+for(let i = 0; i < boxes.length; i++){
+    boxes[i].addEventListener('mouseenter', colorenter);
+    boxes[i].addEventListener('mouseleave', colorleave);
+}
+
+function colorenter(e){
+    e.target.style.backgroundColor = "blue";
+}
+
+function colorleave(e){
+    e.target.style.backgroundColor = "white";
+}
