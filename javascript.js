@@ -46,18 +46,36 @@ function addHovering(){
     //RESOURCE: https://stackoverflow.com/questions/52563010/mouseenter-mouseleave-in-epmty-div-change-a-color-and-remove-it
     const boxes = document.querySelectorAll(".cell");
     for(let i = 0; i < boxes.length; i++){
-        boxes[i].addEventListener('mouseenter', colorenter);
-        boxes[i].addEventListener('mouseleave', colorleave);
+
+        if(boxes[i].classList.contains('color')){
+            console.log("working");
+            boxes[i].addEventListener('mouseenter', colorenter);
+            boxes[i].addEventListener('mouseleave', colorleave);
+        }
+        else {
+            boxes[i].addEventListener('mouseenter', whiteenter);
+            boxes[i].addEventListener('mouseleave', whiteleave);
+        }
     }
 
+    function whiteenter(e){
+        e.target.style.backgroundColor = "#f8f8ff";
+    }
+    
+    function whiteleave(e){
+        e.target.style.backgroundColor = "#f8f8ff";
+    }
+    
     function colorenter(e){
-        e.target.style.backgroundColor = "white";
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        e.target.style.backgroundColor = randomColor;
     }
-
+    
     function colorleave(e){
-        e.target.style.backgroundColor = "lightsteelblue";
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        e.target.style.backgroundColor = randomColor;
     }
-
+    
 }
 
 /*ERASE THE GRID*/
@@ -112,9 +130,22 @@ function eraseListener () {
     });
 }
 
+function colorListener () {
+    const colorButton = document.getElementById('color');
+
+    colorButton.addEventListener('click', () => {
+        const gridDivs = document.querySelectorAll('.cell');
+
+        gridDivs.forEach((item) => {
+            item.classList.toggle("color");
+        });
+    });
+}
+
 /*CREATE INITIAL GRID ON LOAD*/
-createGrid(5,5);
+createGrid(50,50);
 addFlexbox();
 addHovering();
 changeSizeListener();
 eraseListener();
+colorListener();

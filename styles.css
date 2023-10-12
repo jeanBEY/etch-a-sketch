@@ -8,10 +8,18 @@ html, body {
     width: 100%;
     height: 100vh;
     /* overflow: hidden; */
-    background-color: lightsteelblue;
+    background-color: 	#bfefff;
 }
 
-.controls {
+.controls-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 100px;
+}
+
+.controls-2 {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -21,10 +29,10 @@ html, body {
 }
 
 #grid-container{
-    margin: 100px;
+    margin: 25px 100px;
     max-width: 960px;
-    border: solid blue;
-    border-width: 40px;
+    border: solid #7ec0ee;
+    border-width: 75px;
     border-radius: 25px;
 }
 
