@@ -71,7 +71,7 @@ function erase() {
 }
 
 /*CHANGING THE SIZE OF THE GRID CELLS*/
-function changeSize(){
+function changeSizeListener(){
     const small = 100;
     const medium = 50;
     const large = 2;
@@ -83,9 +83,32 @@ function changeSize(){
                 createGrid(small,small);
                 addFlexbox();
                 addHovering();
-        }
+            }
+            if(choice.classList.contains('medium')) {
+                erase();
+                createGrid(medium,medium);
+                addFlexbox();
+                addHovering();
+            }
+            if(choice.classList.contains('large')) {
+                erase();
+                createGrid(large,large);
+                addFlexbox();
+                addHovering();
+            }
 
         });
+    });
+}
+
+function eraseListener () {
+    const eraseButton = document.getElementById('erase');
+
+    eraseButton.addEventListener('click', () => {
+        erase();
+        createGrid(50,50);
+        addFlexbox();
+        addHovering();
     });
 }
 
@@ -93,4 +116,5 @@ function changeSize(){
 createGrid(5,5);
 addFlexbox();
 addHovering();
-changeSize();
+changeSizeListener();
+eraseListener();
