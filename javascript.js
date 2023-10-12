@@ -1,16 +1,18 @@
+const sizeButtons = document.querySelectorAll('.size');
+
 //CREATES GRID ITSELF
 //RESOURCE:  https://www.reddit.com/r/learnjavascript/comments/jf19y6/creating_a_grid_using_divs/
-function createRowDiv(x, y){
+function createGrid(x, y){
     for(let i = 0; i < x; i++){
         let rowDiv = document.createElement("div");
         rowDiv.classList.add("rowDiv");
         document.getElementById("grid-container").appendChild(rowDiv);
-        createRow(i, y, rowDiv);
+        createCells(i, y, rowDiv);
     }
 }
 
 //CREATES THE CELLS TO POPULATE GRID
-function createRow(i, y, rowDiv){
+function createCells(i, y, rowDiv){
     for(let j = 0; j < y; j++){
         let cellDiv = document.createElement("div");       
         cellDiv.classList.add("cell");
@@ -58,7 +60,37 @@ function addHovering(){
 
 }
 
+/*ERASE THE GRID*/
+function erase() {
+    const gridDivs = document.querySelectorAll('#grid-container > div');
+
+    gridDivs.forEach((item) => {
+        const gridDiv = item;
+        gridDiv.remove();
+    });
+}
+
+/*CHANGING THE SIZE OF THE GRID CELLS*/
+function changeSize(){
+    const small = 100;
+    const medium = 50;
+    const large = 2;
+
+    sizeButtons.forEach((choice) => {
+        choice.addEventListener('click', () => {   
+            if(choice.classList.contains('small')) {
+                erase();
+                createGrid(small,small);
+                addFlexbox();
+                addHovering();
+        }
+
+        });
+    });
+}
+
 /*CREATE INITIAL GRID ON LOAD*/
-createRowDiv(5,5);
+createGrid(5,5);
 addFlexbox();
 addHovering();
+changeSize();
