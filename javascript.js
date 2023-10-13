@@ -9,6 +9,8 @@ function createGrid(x, y){
         document.getElementById("grid-container").appendChild(rowDiv);
         createCells(i, y, rowDiv);
     }
+
+    addFlexbox();
 }
 
 //CREATES THE CELLS TO POPULATE GRID
@@ -46,36 +48,25 @@ function addHovering(){
     //RESOURCE: https://stackoverflow.com/questions/52563010/mouseenter-mouseleave-in-epmty-div-change-a-color-and-remove-it
     const boxes = document.querySelectorAll(".cell");
     for(let i = 0; i < boxes.length; i++){
+        boxes[i].addEventListener('mouseenter', colorenter);
+        /*boxes[i].addEventListener('mouseleave', colorleave);*/
+    }
 
-        if(boxes[i].classList.contains('color')){
-            console.log("working");
-            boxes[i].addEventListener('mouseenter', colorenter);
-            boxes[i].addEventListener('mouseleave', colorleave);
+    function colorenter(e){
+        if(e.target.classList.contains('color')){
+            e.target.style.backgroundColor = "blue";
         }
         else {
-            boxes[i].addEventListener('mouseenter', whiteenter);
-            boxes[i].addEventListener('mouseleave', whiteleave);
+            e.target.style.backgroundColor = "white";
+    
         }
-    }
 
-    function whiteenter(e){
-        e.target.style.backgroundColor = "#f8f8ff";
-    }
-    
-    function whiteleave(e){
-        e.target.style.backgroundColor = "#f8f8ff";
-    }
-    
-    function colorenter(e){
-        const randomColor = Math.floor(Math.random()*16777215).toString(16);
-        e.target.style.backgroundColor = randomColor;
-    }
-    
+    /*
     function colorleave(e){
-        const randomColor = Math.floor(Math.random()*16777215).toString(16);
-        e.target.style.backgroundColor = randomColor;
+        e.target.style.backgroundColor = "lightsteelblue";
     }
-    
+    */
+    }
 }
 
 /*ERASE THE GRID*/
@@ -99,19 +90,19 @@ function changeSizeListener(){
             if(choice.classList.contains('small')) {
                 erase();
                 createGrid(small,small);
-                addFlexbox();
+  
                 addHovering();
             }
             if(choice.classList.contains('medium')) {
                 erase();
                 createGrid(medium,medium);
-                addFlexbox();
+
                 addHovering();
             }
             if(choice.classList.contains('large')) {
                 erase();
                 createGrid(large,large);
-                addFlexbox();
+
                 addHovering();
             }
 
@@ -125,7 +116,7 @@ function eraseListener () {
     eraseButton.addEventListener('click', () => {
         erase();
         createGrid(50,50);
-        addFlexbox();
+
         addHovering();
     });
 }
@@ -144,7 +135,7 @@ function colorListener () {
 
 /*CREATE INITIAL GRID ON LOAD*/
 createGrid(50,50);
-addFlexbox();
+
 addHovering();
 changeSizeListener();
 eraseListener();
