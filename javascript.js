@@ -54,7 +54,7 @@ function addHovering(){
 
     function colorenter(e){
         if(e.target.classList.contains('color')){
-            e.target.style.backgroundColor = "blue";
+            e.target.style.backgroundColor = "#" + generateColor();
         }
         else {
             e.target.style.backgroundColor = "white";
@@ -131,6 +131,11 @@ function colorListener () {
             item.classList.toggle("color");
         });
     });
+}
+
+function generateColor() {
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    return randomColor;
 }
 
 /*CREATE INITIAL GRID ON LOAD*/
