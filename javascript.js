@@ -130,6 +130,8 @@ function colorListener () {
         gridDivs.forEach((item) => {
             item.classList.toggle("color");
         });
+
+        setColorButton();
     });
 }
 
@@ -149,6 +151,17 @@ function setSizeButton(size) {
         else {
             sizeButtons[i].style.backgroundColor = '#f8f8ff';
         }
+    }
+}
+
+function setColorButton() {
+    const colorButton = document.querySelector('#color');
+    colorButton.classList.toggle('color-on');
+    if(colorButton.classList.contains('color-on')){
+        colorButton.style.backgroundColor = '#e4dbff';
+    }
+    else {
+        colorButton.style.backgroundColor = '#f8f8ff';
     }
 }
 
