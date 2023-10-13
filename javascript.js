@@ -90,19 +90,19 @@ function changeSizeListener(){
             if(choice.classList.contains('small')) {
                 erase();
                 createGrid(small,small);
-  
+                setSizeButton('small');
                 addHovering();
             }
             if(choice.classList.contains('medium')) {
                 erase();
                 createGrid(medium,medium);
-
+                setSizeButton('medium');
                 addHovering();
             }
             if(choice.classList.contains('large')) {
                 erase();
                 createGrid(large,large);
-
+                setSizeButton('large');
                 addHovering();
             }
 
@@ -138,8 +138,23 @@ function generateColor() {
     return randomColor;
 }
 
+
+function setSizeButton(size) {
+    const sizeButtons = document.querySelectorAll('.size');
+
+    for(let i = 0; i < sizeButtons.length; i++){
+        if(sizeButtons[i].classList.contains(size)){
+            sizeButtons[i].style.backgroundColor = '#e4dbff';
+        }
+        else {
+            sizeButtons[i].style.backgroundColor = '#f8f8ff';
+        }
+    }
+}
+
 /*CREATE INITIAL GRID ON LOAD*/
 createGrid(50,50);
+setSizeButton('medium');
 
 addHovering();
 changeSizeListener();
