@@ -18,6 +18,7 @@ function createCells(i, y, rowDiv){
     for(let j = 0; j < y; j++){
         let cellDiv = document.createElement("div");       
         cellDiv.classList.add("cell");
+        cellDiv.style.border = "thin solid lightgray";
         rowDiv.appendChild(cellDiv);
     }
 }
