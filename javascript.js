@@ -150,7 +150,7 @@ function setSizeButton(size) {
             sizeButtons[i].style.backgroundColor = '#e4dbff';
         }
         else {
-            sizeButtons[i].style.backgroundColor = '#f8f8ff';
+            sizeButtons[i].style.backgroundColor = '#b0abff';
         }
     }
 }

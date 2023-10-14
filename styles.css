@@ -8,8 +8,13 @@ html, body {
     width: 100%;
     height: 100vh;
     background-color: 	#bfefff;
-    font-family: "chalkduster";
+    font-family: 'Icekingdom';
 }
+
+@font-face{
+    font-family: "Icekingdom";
+    src: url("Icekingdom.ttf") format("truetype");
+  }
 
 header {
     display: flex;
@@ -18,19 +23,27 @@ header {
     margin: 25px 100px 0 100px;
     padding: 10px 0;
     max-width: 960px;
-    font-size: 50px;
+    font-size: 60px;
     background-color: #7ec0ee;
     border-radius: 20px 20px 0 0;
-    box-shadow: 50px;
+    text-shadow: 5px 5px 5px gray;
+    color: #b0ffff;
 }
 
 button {
-    background-color: #f8f8ff;
+    background-color: 	#b0abff;
     padding: 15px;
     border-radius: 100px;
     margin: 10px 15px;
     box-shadow: 50px;
-    font-family: "chalkduster";
+    font-family: 'Icekingdom';
+    color: 	#b0ffff;
+    font-size: 15px;
+    text-shadow: 2px 2px 2px gray;
+}
+
+p {
+    color: 	#284863;
 }
 
 #etch-a-sketch {
