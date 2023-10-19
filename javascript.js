@@ -162,7 +162,7 @@ function setColorButton() {
         colorButton.style.backgroundColor = '#e4dbff';
     }
     else {
-        colorButton.style.backgroundColor = '#f8f8ff';
+        colorButton.style.backgroundColor = '#b0abff';
     }
 }
 
